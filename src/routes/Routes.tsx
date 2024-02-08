@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import { getCurrenciesLoader, getCurrencyLoader } from ".";
+import { getCurrenciesLoader } from "./Loaders";
+import { LayoutKairos } from "../components/Layouts";
 
 // para este caso no necesitamos un router
 // pero este es un ejemplo que serviria para una implementacion mas compleja donde
@@ -9,7 +10,7 @@ import { getCurrenciesLoader, getCurrencyLoader } from ".";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <LayoutHome />,
+        element: <LayoutKairos />,
         children: [
             { 
                 index: true,
@@ -17,11 +18,6 @@ const router = createBrowserRouter([
                 element: <HomeScreen />,
                 loader: getCurrenciesLoader,
             },
-            { 
-                path: "/currency/:id",
-                element: <CurrencyScreen />,
-                loader: getCurrencyLoader,
-            }
         ]
     }
 ]);
